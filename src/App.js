@@ -4,7 +4,7 @@ import Title from './components/Title';
 import Modal from './components/Modal';
 
 function App() {
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
   const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
@@ -43,7 +43,7 @@ function App() {
         </>
       )}
       {showEvents && events.map((event, index) => (
-        <div key={event.id}>
+        <div key={event.id} className="eventninja">
           <h2>{index} - {event.title}</h2>
           <button onClick={() => handleClick(event.id)}>delete event</button>
         </div>
@@ -53,6 +53,9 @@ function App() {
         <h2>10% Off Coupon Code!!</h2>
         <p>Use the code NINJA10 at the checkout.</p>
       </Modal>}
+
+      <br />
+      <button onClick={() => setShowModal(true)}>View modal</button>
 
     </div>
   );
